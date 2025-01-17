@@ -7,7 +7,7 @@ const Navbar = () => {
 
 
     return (
-        <div className=" navbar bg-[#0A92B9] text-neutral-content shadow-md sticky top-0 z-50">
+        <div className=" navbar bg-[#0A92B9] text-neutral-content shadow-md sticky top-0 z-50 ">
             <div className="navbar-start">
                 {/* Dropdown for smaller screens */}
                 <div className="dropdown">
