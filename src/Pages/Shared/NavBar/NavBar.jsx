@@ -47,7 +47,7 @@ const Navbar = () => {
                 {/* Website Name/Logo */}
                 <div className="flex items-center gap-4">
                     <div>
-                                <img className="w-[50px] rounded-lg" src={logo} alt="" />
+                        <img className="w-[50px] rounded-lg" src={logo} alt="" />
                     </div>
                     <div>
                         <Link to="/" className="text-2xl font-bold tracking-wide">
@@ -77,7 +77,7 @@ const Navbar = () => {
 
 
             <div className="navbar-end">
-                <button>login</button>
+                <button className="btn btn-neutral">login</button>
             </div>
         </div>
     );
