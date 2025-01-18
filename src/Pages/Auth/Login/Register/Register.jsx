@@ -1,15 +1,20 @@
-/* eslint-disable no-unused-vars */
-
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 
 const Register = () => {
 
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+    const onSubmit = data => {
+        console.log(data);
+    }
+
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-[#97CBDC]">
             <div className="card bg-white w-full max-w-md shadow-xl rounded-lg">
-                <form className="card-body px-8 py-10">
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body px-8 py-10">
                     <h2 className="text-2xl font-bold text-neutral-600 text-center mb-6">
                         Create Your Account
                     </h2>
@@ -20,6 +25,7 @@ const Register = () => {
                             <span className="label-text text-neutral-700">Name</span>
                         </label>
                         <input
+                            {...register("name", { required: true })}
                             name="name"
                             type="text"
                             placeholder="Enter your name"
@@ -35,6 +41,7 @@ const Register = () => {
                         </label>
                         <input
                             name="email"
+                            {...register("email", { required: true })}
                             type="email"
                             placeholder="Enter your email"
                             className="input input-bordered border-neutral-300 focus:outline-none focus:ring focus:ring-neutral-200 transition duration-300"
@@ -49,6 +56,7 @@ const Register = () => {
                         </label>
                         <input
                             name="photo"
+                            {...register("photoURL", { required: true })}
                             type="url"
                             placeholder="Enter your photo URL"
                             className="input input-bordered border-neutral-300 focus:outline-none focus:ring focus:ring-neutral-200 transition duration-300"
@@ -62,12 +70,13 @@ const Register = () => {
                         </label>
                         <input
                             name="password"
+                            {...register("password", { required: true })}
                             type="password"
                             placeholder="Enter your password"
                             className="input input-bordered border-neutral-300 focus:outline-none focus:ring focus:ring-neutral-200 transition duration-300"
                             required
                         />
-                        
+
 
                     </div>
 

@@ -1,18 +1,33 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 
 const Login = () => {
 
-   
 
-   
+    const { signIn } = useContext(AuthContext);
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+
+    }
 
 
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-[#97CBDC]">
             <div className="card bg-white w-full max-w-md shadow-2xl rounded-lg">
-                <form className="card-body px-8 py-10">
+                <form onSubmit={handleLogin} className="card-body px-8 py-10">
                     <h2 className="text-2xl font-bold text-neutral-600 text-center mb-6">Login to Your Account</h2>
 
                     {/* Email Field */}
@@ -41,7 +56,7 @@ const Login = () => {
                             className="input input-bordered border-neutral-300 focus:outline-none focus:ring focus:ring-neutral-200 transition duration-300"
                             required
                         />
-                       
+
                         <label className="label">
                             <Link to="/auth/forgetpass" className="label-text-alt text-neutral-500 hover:underline">Forgot password? </Link>
                         </label>
