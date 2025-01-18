@@ -7,6 +7,7 @@ import Home from "../Pages/Home/Home/Home";
 import AllScholarship from "../Pages/AllScholarship/AllScholarship/AllScholarship";
 import Auth from "../Pages/Auth/Auth/Auth";
 import Login from "../Pages/Auth/Login/Login";
+import Register from "../Pages/Auth/Login/Register/Register";
 
 
 
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login></Login>
+            },
+            {
+                path: 'register',
+                element: <Register></Register>
             }
         ]
     }
