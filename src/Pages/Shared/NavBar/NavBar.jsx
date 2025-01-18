@@ -32,12 +32,16 @@ const Navbar = () => {
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-black rounded-lg w-52"
                     >
                         <li>
-                            <NavLink>
+                            <NavLink
+                            to='/'
+                            >
                                 Home
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink>
+                            <NavLink
+                            to='/all-scholarship'
+                            >
                                 All Scholarship
                             </NavLink>
                         </li>
@@ -50,7 +54,7 @@ const Navbar = () => {
                         <img className="w-[50px] rounded-lg" src={logo} alt="" />
                     </div>
                     <div>
-                        <Link to="/" className="text-2xl font-bold tracking-wide">
+                        <Link to="/" className="text-2xl hover:text-white font-bold tracking-wide">
                             NextGen Scholarships
                         </Link>
                     </div>
@@ -61,12 +65,18 @@ const Navbar = () => {
                 {/* Navigation Links */}
                 <ul className="menu menu-horizontal space-x-4 font-medium">
                     <li>
-                        <NavLink>
+                        <NavLink
+                        to='/'
+                        className='bg-slate-500  text-white hover:bg-slate-600'
+                        >
                             Home
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink>
+                        <NavLink
+                        to='/all-scholarship'
+                        className='bg-slate-500  text-white hover:bg-slate-600'
+                        >
                             All Scholarship
                         </NavLink>
                     </li>
@@ -77,7 +87,7 @@ const Navbar = () => {
 
 
             <div className="navbar-end">
-                <button className="btn btn-neutral">login</button>
+                <Link to='/auth/login'><button className="btn btn-neutral">login</button></Link>
             </div>
         </div>
     );

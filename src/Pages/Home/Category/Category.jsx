@@ -9,11 +9,15 @@ import category3 from '../../../assets/category3.jpg';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 
 const Category = () => {
     return (
         <section>
-            
+            <SectionTitle
+                heading={'Scholarship Category'}
+            >
+            </SectionTitle>
             <Swiper
                 slidesPerView={4}
                 spaceBetween={30}

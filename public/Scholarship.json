@@ -1,0 +1,81 @@
+[
+    {
+      "universityName": "Harvard University",
+      "universityImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4CgU49RfaMHGEIuPqbdrtc63jOqeW6w1btg&s",
+      "scholarshipCategory": "Doctor",
+      "universityLocation": {
+        "country": "USA",
+        "city": "Cambridge"
+      },
+      "applicationDeadline": "2025-05-15",
+      "subjectCategory": "Medical Sciences",
+      "applicationFees": 100,
+      "rating": 4.8
+    },
+    {
+      "universityName": "University of Oxford",
+      "universityImage": "https://cdn.britannica.com/03/117103-050-F4C2FC83/view-University-of-Oxford-England-Oxfordshire.jpg",
+      "scholarshipCategory": "Doctor",
+      "universityLocation": {
+        "country": "UK",
+        "city": "Oxford"
+      },
+      "applicationDeadline": "2025-06-30",
+      "subjectCategory": "Clinical Medicine",
+      "applicationFees": 120,
+      "rating": 4.9
+    },
+    {
+      "universityName": "Wageningen University",
+      "universityImage": "https://www.wur.nl/upload/cc7ddf21-12f7-4600-93a0-e6879236f23e_WageningenCampus.jpg",
+      "scholarshipCategory": "Agriculture",
+      "universityLocation": {
+        "country": "Netherlands",
+        "city": "Wageningen"
+      },
+      "applicationDeadline": "2025-03-20",
+      "subjectCategory": "Agriculture and Forestry",
+      "applicationFees": 50,
+      "rating": 4.6
+    },
+    {
+      "universityName": "University of California, Davis",
+      "universityImage": "https://images.shiksha.com/mediadata/images/1536653664phpH1YGHL.jpeg",
+      "scholarshipCategory": "Agriculture",
+      "universityLocation": {
+        "country": "USA",
+        "city": "Davis"
+      },
+      "applicationDeadline": "2025-04-10",
+      "subjectCategory": "Agricultural Economics",
+      "applicationFees": 70,
+      "rating": 4.7
+    },
+    {
+      "universityName": "Massachusetts Institute of Technology",
+      "universityImage": "https://web.mit.edu/files/images/201807/15656704711_00457bd2c9_b_1.jpg",
+      "scholarshipCategory": "Engineering",
+      "universityLocation": {
+        "country": "USA",
+        "city": "Cambridge"
+      },
+      "applicationDeadline": "2025-07-01",
+      "subjectCategory": "Mechanical Engineering",
+      "applicationFees": 150,
+      "rating": 4.9
+    },
+    {
+      "universityName": "ETH Zurich",
+      "universityImage": "https://arch.ethz.ch/en/departement/contact/HG/_jcr_content/par/textimage/image.imageformat.text50percent.239631067.jpg",
+      "scholarshipCategory": "Engineering",
+      "universityLocation": {
+        "country": "Switzerland",
+        "city": "Zurich"
+      },
+      "applicationDeadline": "2025-08-15",
+      "subjectCategory": "Computer Science and Engineering",
+      "applicationFees": 130,
+      "rating": 4.8
+    }
+  ]
+  
