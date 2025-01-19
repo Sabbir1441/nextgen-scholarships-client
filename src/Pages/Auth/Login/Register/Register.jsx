@@ -3,10 +3,14 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
+import { FaGoogle } from "react-icons/fa";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+
 
 
 const Register = () => {
 
+    const axiosPublic = useAxiosPublic();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,16 +23,29 @@ const Register = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('user profile updated')
-                        reset();
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: 'Created user Successful.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/');
+                         // create user entry in the database
+                         const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                        .then(res => {
+                            if ( res.data.insertedId) {
+                                console.log('user added to the database')
+                                reset();
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: 'Created user Successful.',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate('/');
+                            }
+                        })
+                        
+                        
+                       
                     })
             })
             .catch(error => console.log(error))
@@ -135,6 +152,7 @@ const Register = () => {
                     <div className="flex justify-center mt-4">
                         <button className="btn btn-outline border-neutral-300 text-neutral-600 hover:bg-neutral-800 hover:text-neutral-100 flex items-center gap-2">
                             <span className="text-neutral-500 text-xl">
+                                <FaGoogle></FaGoogle>
                             </span>
                             Google
                         </button>

@@ -13,6 +13,7 @@ import Apply from "../Pages/Apply/Apply";
 import Dashboard from "../Layout/Dashboard";
 import AddScholarship from "../Pages/Dashboard/AddScholarship/AddScholarship";
 import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails/ScholarshipDetails";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 
@@ -46,7 +47,11 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: 'addScholarship',
-                        element: <AddScholarship></AddScholarship>
+                        element: <PrivateRoute><AddScholarship></AddScholarship></PrivateRoute>
+                    },
+                    {
+                        path: 'payment',
+                        element: <PrivateRoute><Payment></Payment></PrivateRoute>
                     }
                 ]
             }
