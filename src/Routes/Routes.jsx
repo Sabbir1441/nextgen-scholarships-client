@@ -10,6 +10,8 @@ import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Login/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import Apply from "../Pages/Apply/Apply";
+import Dashboard from "../Layout/Dashboard";
+import AddScholarship from "../Pages/Dashboard/AddScholarship/AddScholarship";
 
 
 
@@ -32,6 +34,16 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <Apply></Apply>
                 </PrivateRoute>
+            },
+            {
+                path: '/dashboard',
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+                children: [
+                    {
+                        path: 'addScholarship',
+                        element: <AddScholarship></AddScholarship>
+                    }
+                ]
             }
         ]
     },

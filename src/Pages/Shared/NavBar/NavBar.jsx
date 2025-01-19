@@ -42,16 +42,32 @@ const Navbar = () => {
                     >
                         <li>
                             <NavLink
-                            to='/'
+                                to='/'
                             >
                                 Home
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                            to='/all-scholarship'
+                                to='/all-scholarship'
                             >
                                 All Scholarship
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to='/apply'
+                                className='bg-slate-500  text-white hover:bg-slate-600'
+                            >
+                                Apply
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to='/dashboard'
+                                className='bg-slate-500  text-white hover:bg-slate-600'
+                            >
+                                Dashboard
                             </NavLink>
                         </li>
 
@@ -75,26 +91,34 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal space-x-4 font-medium">
                     <li>
                         <NavLink
-                        to='/'
-                        className='bg-slate-500  text-white hover:bg-slate-600'
+                            to='/'
+                            className='bg-slate-500  text-white hover:bg-slate-600'
                         >
                             Home
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                        to='/all-scholarship'
-                        className='bg-slate-500  text-white hover:bg-slate-600'
+                            to='/all-scholarship'
+                            className='bg-slate-500  text-white hover:bg-slate-600'
                         >
                             All Scholarship
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                        to='/apply'
-                        className='bg-slate-500  text-white hover:bg-slate-600'
+                            to='/apply'
+                            className='bg-slate-500  text-white hover:bg-slate-600'
                         >
                             Apply
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to='/dashboard'
+                            className='bg-slate-500  text-white hover:bg-slate-600'
+                        >
+                            Dashboard
                         </NavLink>
                     </li>
 
@@ -104,17 +128,17 @@ const Navbar = () => {
 
 
             <div className="navbar-end">
-            <div className="flex justify-center items-center gap-4">
-                        {
-                            user ? <>
-                                <span>{user?.displayName}</span>
-                                <img className="w-[30px] h-[30px] rounded-2xl" src={user?.photoURL} alt="" />
-                                <button onClick={handleLogOut} className="btn btn-warning">Log Out</button>
-                            </> : <>
-                                <button className="btn btn-neutral font-bold"><Link to="/auth/login">Login</Link></button>
-                            </>
-                        }
-                    </div>
+                <div className="flex justify-center items-center gap-4">
+                    {
+                        user ? <>
+                            <span className="border px-3 rounded-lg text-white">{user?.displayName}</span>
+                            <img className="w-[30px] h-[30px] border rounded-2xl" src={user?.photoURL} alt="" />
+                            <button onClick={handleLogOut} className="btn btn-warning">Log Out</button>
+                        </> : <>
+                            <button className="btn btn-neutral font-bold"><Link to="/auth/login">Login</Link></button>
+                        </>
+                    }
+                </div>
             </div>
         </div>
     );

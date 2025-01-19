@@ -1,22 +1,37 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../Providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Register = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data);
-        createUser(data.email , data.password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch(error => console.log(error))
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        console.log('user profile updated')
+                        reset();
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: 'Created user Successful.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate('/');
+                    })
+            })
+            .catch(error => console.log(error))
     }
 
 
@@ -85,13 +100,13 @@ const Register = () => {
                                 maxLength: 20,
                                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                             })}
-                            
+
                             type="password"
                             placeholder="Enter your password"
                             className="input input-bordered border-neutral-300 focus:outline-none focus:ring focus:ring-neutral-200 transition duration-300"
                             required
-                            />
-                            {errors.password?.type === 'pattern' && <p className="text-red-600">Password must contain at least 6 and upto 20 characters, including an uppercase letter, a lowercase letter, and a number.</p>}
+                        />
+                        {errors.password?.type === 'pattern' && <p className="text-red-600">Password must contain at least 6 and upto 20 characters, including an uppercase letter, a lowercase letter, and a number.</p>}
 
 
                     </div>
