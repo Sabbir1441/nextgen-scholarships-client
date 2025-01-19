@@ -1,5 +1,7 @@
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddScholarship = () => {
     const {
@@ -9,9 +11,46 @@ const AddScholarship = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data); 
-        reset();
+    const onSubmit = async (data) => {
+        try {
+
+            const convertedData = {
+                ...data,
+                worldRank: parseInt(data.worldRank, 10),  // worldRank কে integer এ কনভার্ট করা
+                tuitionFees: parseFloat(data.tuitionFees), // tuitionFees কে float এ কনভার্ট করা
+                applicationFees: parseFloat(data.applicationFees), // applicationFees কে float এ কনভার্ট করা
+                serviceCharge: parseFloat(data.serviceCharge), // serviceCharge কে float এ কনভার্ট করা
+            };
+
+            // Post Request to the server
+            const response = await axios.post('http://localhost:5000/scholarships', convertedData);
+
+            // Checking if the request was successful
+            if (response.status === 200) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Scholarship added successfully.',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Something went wrong. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again',
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Unable to reach the server. Please try again later.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+        }
+
+      
     };
 
     return (
