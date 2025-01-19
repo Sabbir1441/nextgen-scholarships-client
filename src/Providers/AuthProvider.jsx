@@ -32,7 +32,7 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            setLoding(false);
+            setLoading(false);
         });
         return () => {
             unsubscribe();
@@ -45,7 +45,7 @@ const AuthProvider = ({children}) => {
         createUser,
         signIn,
         logOut,
-        
+
 
     }
 

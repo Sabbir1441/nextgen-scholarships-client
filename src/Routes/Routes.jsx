@@ -8,6 +8,8 @@ import AllScholarship from "../Pages/AllScholarship/AllScholarship/AllScholarshi
 import Auth from "../Pages/Auth/Auth/Auth";
 import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Login/Register/Register";
+import PrivateRoute from "./PrivateRoute";
+import Apply from "../Pages/Apply/Apply";
 
 
 
@@ -24,6 +26,12 @@ export const router = createBrowserRouter([
             {
                 path: 'all-scholarship',
                 element: <AllScholarship></AllScholarship>
+            },
+            {
+                path: '/apply',
+                element: <PrivateRoute>
+                    <Apply></Apply>
+                </PrivateRoute>
             }
         ]
     },

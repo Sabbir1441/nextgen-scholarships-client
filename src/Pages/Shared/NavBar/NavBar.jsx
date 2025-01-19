@@ -1,9 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/Logo.jpg';
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
 
 
     return (
@@ -80,6 +89,14 @@ const Navbar = () => {
                             All Scholarship
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                        to='/apply'
+                        className='bg-slate-500  text-white hover:bg-slate-600'
+                        >
+                            Apply
+                        </NavLink>
+                    </li>
 
                 </ul>
             </div>
@@ -87,7 +104,17 @@ const Navbar = () => {
 
 
             <div className="navbar-end">
-                <Link to='/auth/login'><button className="btn btn-neutral">login</button></Link>
+            <div className="flex justify-center items-center gap-4">
+                        {
+                            user ? <>
+                                <span>{user?.displayName}</span>
+                                <img className="w-[30px] h-[30px] rounded-2xl" src={user?.photoURL} alt="" />
+                                <button onClick={handleLogOut} className="btn btn-warning">Log Out</button>
+                            </> : <>
+                                <button className="btn btn-neutral font-bold"><Link to="/auth/login">Login</Link></button>
+                            </>
+                        }
+                    </div>
             </div>
         </div>
     );
