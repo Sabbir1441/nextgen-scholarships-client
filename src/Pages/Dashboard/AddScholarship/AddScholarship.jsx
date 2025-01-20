@@ -1,9 +1,14 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const AddScholarship = () => {
+
+    const axiosSecure = useAxiosSecure();
+    const {user } = useContext(AuthContext);
     const {
         register,
         handleSubmit,
@@ -16,14 +21,14 @@ const AddScholarship = () => {
 
             const convertedData = {
                 ...data,
-                worldRank: parseInt(data.worldRank, 10),  // worldRank কে integer এ কনভার্ট করা
-                tuitionFees: parseFloat(data.tuitionFees), // tuitionFees কে float এ কনভার্ট করা
-                applicationFees: parseFloat(data.applicationFees), // applicationFees কে float এ কনভার্ট করা
-                serviceCharge: parseFloat(data.serviceCharge), // serviceCharge কে float এ কনভার্ট করা
+                worldRank: parseInt(data.worldRank, 10), 
+                tuitionFees: parseFloat(data.tuitionFees),
+                applicationFees: parseFloat(data.applicationFees),
+                serviceCharge: parseFloat(data.serviceCharge),
             };
 
             // Post Request to the server
-            const response = await axios.post('http://localhost:5000/scholarships', convertedData);
+            const response = await axiosSecure.post('/scholarships', convertedData);
 
             // Checking if the request was successful
             if (response.status === 200) {
@@ -266,7 +271,8 @@ const AddScholarship = () => {
                         type="email"
                         {...register("userEmail", { required: "Email is required" })}
                         className="w-full p-2 border border-gray-300 rounded"
-                        placeholder="Enter email"
+                        value={user.email}
+                        readOnly
                     />
                     {errors.userEmail && (
                         <p className="text-red-500 text-sm">{errors.userEmail.message}</p>

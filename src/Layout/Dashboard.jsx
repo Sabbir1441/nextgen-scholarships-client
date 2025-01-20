@@ -19,7 +19,7 @@ const Dashboard = () => {
                     { !isAdmin && (
                         <>
                             <li>
-                                <NavLink to="/dashboard/profile" className="flex items-center gap-2">
+                                <NavLink to="/dashboard/my-profile" className="flex items-center gap-2">
                                     <FaUser /> My Profile
                                 </NavLink>
                             </li>

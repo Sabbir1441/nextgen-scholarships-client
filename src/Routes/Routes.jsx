@@ -15,6 +15,9 @@ import AddScholarship from "../Pages/Dashboard/AddScholarship/AddScholarship";
 import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails/ScholarshipDetails";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import AllUser from "../Pages/Dashboard/AllUser/AllUser";
+import AdminRoute from "./AdminRoute";
+import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
+import Managescholarships from "../Pages/Dashboard/ManageScholarships/Managescholarships";
 
 
 
@@ -48,7 +51,7 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: 'addScholarship',
-                        element: <PrivateRoute><AddScholarship></AddScholarship></PrivateRoute>
+                        element: <AdminRoute><AddScholarship></AddScholarship></AdminRoute>
                     },
                     {
                         path: 'payment',
@@ -56,7 +59,15 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: 'allusers',
-                        element: <PrivateRoute><AllUser></AllUser></PrivateRoute>
+                        element: <AdminRoute><AllUser></AllUser></AdminRoute>
+                    },
+                    {
+                        path: 'admin-profile',
+                        element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
+                    },
+                    {
+                        path: 'manage-scholarships',
+                        element: <AdminRoute><Managescholarships></Managescholarships></AdminRoute>
                     }
                 ]
             }
