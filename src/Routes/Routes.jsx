@@ -18,6 +18,7 @@ import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
 import Managescholarships from "../Pages/Dashboard/ManageScholarships/Managescholarships";
+import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 
 
 
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
                 </PrivateRoute>
             },
             {
-                path: 'payment',
+                path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>
             },
             {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
                 path: '/dashboard',
                 element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
                 children: [
+                    {
+                        path: 'my-profile',
+                        element: <MyProfile></MyProfile>
+                    },
                     {
                         path: 'addScholarship',
                         element: <AdminRoute><AddScholarship></AddScholarship></AdminRoute>

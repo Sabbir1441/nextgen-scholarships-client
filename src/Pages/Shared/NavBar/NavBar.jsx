@@ -43,6 +43,8 @@ const Navbar = () => {
                         <li>
                             <NavLink
                                 to='/'
+                                className='bg-slate-500  text-white hover:bg-slate-600'
+
                             >
                                 Home
                             </NavLink>
@@ -50,6 +52,8 @@ const Navbar = () => {
                         <li>
                             <NavLink
                                 to='/all-scholarship'
+                                className='bg-slate-500  text-white hover:bg-slate-600'
+
                             >
                                 All Scholarship
                             </NavLink>
