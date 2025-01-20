@@ -16,6 +16,7 @@ const PaymentForm = ({ amount, scholarships }) => {
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
 
+
     useEffect(() => {
         if (amount > 0) {
             axiosSecure.post('/create-payment-intent', { price: amount })
@@ -67,6 +68,7 @@ const PaymentForm = ({ amount, scholarships }) => {
                     showConfirmButton: false,
                     timer: 1500,
                 });
+               
             }
         }
     };
@@ -76,6 +78,7 @@ const PaymentForm = ({ amount, scholarships }) => {
         const form = event.target;
 
         const applicationData = {
+            scholarshipId: scholarships._id,
             phoneNumber: form.phoneNumber.value,
             photo: form.photo.value,
             address: {
@@ -107,6 +110,7 @@ const PaymentForm = ({ amount, scholarships }) => {
                         showConfirmButton: false,
                         timer: 1500,
                     });
+                    navigate('/dashboard/my-applications')
                 }
             });
     };
@@ -167,12 +171,7 @@ const PaymentForm = ({ amount, scholarships }) => {
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
-                        <select name="applyingDegree" className="select select-bordered w-full" required>
-                            <option value="" disabled>Select Degree</option>
-                            <option value="Diploma">Diploma</option>
-                            <option value="Bachelor">Bachelor</option>
-                            <option value="Masters">Masters</option>
-                        </select>
+                        <input type="text" name="applyingDegree" value={scholarships.degree} className="input input-bordered w-full" required />
                         <input type="text" name="sscResult" placeholder="SSC Result" className="input input-bordered w-full" required />
                         <input type="text" name="hscResult" placeholder="HSC Result" className="input input-bordered w-full" required />
                         <select name="studyGap" className="select select-bordered w-full">

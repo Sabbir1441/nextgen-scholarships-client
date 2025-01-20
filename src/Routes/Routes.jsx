@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
 import Managescholarships from "../Pages/Dashboard/ManageScholarships/Managescholarships";
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
+import MyApplications from "../Pages/Dashboard/MyApplications/MyApplications";
 
 
 
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'my-profile',
                         element: <MyProfile></MyProfile>
+                    },
+                    {
+                        path: 'my-applications',
+                        element: <MyApplications></MyApplications>
                     },
                     {
                         path: 'addScholarship',
