@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
-import { FaTrash, FaTrashAlt, FaUser, FaUserAlt, FaUserTag } from 'react-icons/fa';
+import { FaTrashAlt, FaUserTag, FaUserAlt } from 'react-icons/fa';
 
 const AllUser = () => {
-
     const axiosSecure = useAxiosSecure();
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
@@ -13,26 +12,37 @@ const AllUser = () => {
             const res = await axiosSecure.get('/users');
             return res.data;
         }
-    })
+    });
 
-    const handleMakeAdmin = user =>{
-        axiosSecure.patch(`/users/admin/${user._id}`)
-        .then(res =>{
-            console.log(res.data)
-            if(res.data.modifiedCount > 0){
-                refetch();
+    const [role, setRole] = useState('');
+
+    const handleRoleChange = (user, newRole) => {
+        axiosSecure.patch(`/users/role/${user._id}`, { role: newRole })
+            .then(res => {
+                if (res.data.message) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} role updated to ${newRole}`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch();
+                }
+            })
+            .catch(error => {
+                console.error(error);
                 Swal.fire({
                     position: "top-end",
-                    icon: "success",
-                    title: `${user.name} is an Admin Now!`,
+                    icon: "error",
+                    title: "Failed to update role",
                     showConfirmButton: false,
                     timer: 1500
-                  });
-            }
-        })
-    }
+                });
+            });
+    };
 
-    const handleDeleteUser = user => {
+    const handleDeleteUser = (user) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to delete this!",
@@ -43,26 +53,24 @@ const AllUser = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-
                 axiosSecure.delete(`/users/${user._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "User has been deleted.",
                                 icon: "success"
                             });
                         }
-                    })
+                    });
             }
         });
-    }
-
+    };
 
     return (
         <div className="overflow-x-auto mx-auto">
-            <table className=" text-left ">
+            <table className="text-left">
                 <thead className="bg-gray-800 text-white">
                     <tr>
                         <th className="py-2 px-4">#</th>
@@ -79,11 +87,24 @@ const AllUser = () => {
                             <td className="py-2 px-4">{user.name}</td>
                             <td className="py-2 px-4">{user.email}</td>
                             <td className="py-2 px-4">
-                                {user.role === 'admin' ? 'Admin' : <button
-                                    onClick={() => handleMakeAdmin(user)}
-                                    className="btn btn-sm bg-blue-500 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2">
-                                    <FaUserTag />
-                                </button>}
+                                {user.role === 'admin' ? (
+                                    'Admin'
+                                ) : user.role === 'moderator' ? (
+                                    'Moderator'
+                                ) : (
+                                    <div className="flex items-center gap-2">
+                                        <button
+                                            onClick={() => handleRoleChange(user, 'admin')}
+                                            className="btn btn-sm bg-blue-500 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2">
+                                            <FaUserTag /> Admin
+                                        </button>
+                                        <button
+                                            onClick={() => handleRoleChange(user, 'moderator')}
+                                            className="btn btn-sm bg-yellow-500 text-white rounded-lg hover:bg-yellow-700 flex items-center gap-2">
+                                            <FaUserAlt /> Moderator
+                                        </button>
+                                    </div>
+                                )}
                             </td>
                             <td className="py-2 px-4">
                                 <button
