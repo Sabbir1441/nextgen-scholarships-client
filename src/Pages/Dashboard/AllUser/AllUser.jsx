@@ -70,6 +70,9 @@ const AllUser = () => {
 
     return (
         <div className="overflow-x-auto mx-auto">
+            <div className='text-center mb-3 text-2xl font-bold'>
+                All User : {users.length}
+            </div>
             <table className="text-left">
                 <thead className="bg-gray-800 text-white">
                     <tr>

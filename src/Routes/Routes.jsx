@@ -42,6 +42,10 @@ export const router = createBrowserRouter([
                 </PrivateRoute>
             },
             {
+                path: 'payment',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>
+            },
+            {
                 path: '/scholarship-details/:id',
                 element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>
             },
@@ -52,10 +56,6 @@ export const router = createBrowserRouter([
                     {
                         path: 'addScholarship',
                         element: <AdminRoute><AddScholarship></AddScholarship></AdminRoute>
-                    },
-                    {
-                        path: 'payment',
-                        element: <PrivateRoute><Payment></Payment></PrivateRoute>
                     },
                     {
                         path: 'allusers',
