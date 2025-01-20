@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUser, FaClipboardList, FaPlus, FaTasks, FaUsers, FaComments } from "react-icons/fa";
 
 const Dashboard = () => {
-    const role = "user"; // Change this to "moderator" or "user" for testing purposes
+    const role = "admin"; // Change this to "moderator" or "user" for testing purposes
 
     return (
         <div className="flex min-h-screen">
@@ -116,10 +116,10 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/dashboard/manage-users"
+                                    to="/dashboard/allusers"
                                     className="flex items-center gap-2"
                                 >
-                                    <FaUsers /> Manage Users
+                                    <FaUsers /> All Users
                                 </NavLink>
                             </li>
                             <li>

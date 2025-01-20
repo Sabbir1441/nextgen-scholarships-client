@@ -14,6 +14,7 @@ import Dashboard from "../Layout/Dashboard";
 import AddScholarship from "../Pages/Dashboard/AddScholarship/AddScholarship";
 import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails/ScholarshipDetails";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 
 
 
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'payment',
                         element: <PrivateRoute><Payment></Payment></PrivateRoute>
+                    },
+                    {
+                        path: 'allusers',
+                        element: <PrivateRoute><AllUser></AllUser></PrivateRoute>
                     }
                 ]
             }

@@ -131,7 +131,7 @@ const Navbar = () => {
                 <div className="flex justify-center items-center gap-4">
                     {
                         user ? <>
-                            <span className="border px-3 rounded-lg text-white">{user?.displayName}</span>
+                            <span className="border px-3 rounded-lg text-white hidden md:block">{user?.displayName}</span>
                             <img className="w-[30px] h-[30px] border rounded-2xl" src={user?.photoURL} alt="" />
                             <button onClick={handleLogOut} className="btn btn-warning">Log Out</button>
                         </> : <>
