@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
 import { FaGoogle } from "react-icons/fa";
+import Social from "../../../Social/Social";
 
 
 const Login = () => {
@@ -90,14 +91,7 @@ const Login = () => {
                     <div className="divider text-neutral-500 mt-6">OR</div>
 
                     {/* Google Login */}
-                    <div className="flex justify-center mt-4">
-                        <button className="btn btn-outline border-neutral-300 text-neutral-600 hover:bg-neutral-800 hover:text-neutral-100 flex items-center gap-2">
-                            <span className="text-neutral-500 text-xl">
-                                <FaGoogle />
-                            </span>
-                            Google
-                        </button>
-                    </div>
+                    <Social></Social>
                 </form>
             </div>
         </div>
