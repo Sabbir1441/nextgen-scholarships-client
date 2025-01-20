@@ -60,7 +60,7 @@ const Payment = () => {
             </div>
             <div className="px-10">
                 <Elements stripe={stripePromise}>
-                    <PaymentForm></PaymentForm>
+                    <PaymentForm amount={scholarship.applicationFees} scholarships={scholarship}></PaymentForm>
                 </Elements>
             </div>
         </div>
