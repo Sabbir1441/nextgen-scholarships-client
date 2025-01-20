@@ -1,9 +1,11 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUser, FaClipboardList, FaPlus, FaTasks, FaUsers, FaComments } from "react-icons/fa";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
-    const role = "admin"; // Change this to "moderator" or "user" for testing purposes
+    const [isAdmin] = useAdmin();
+
 
     return (
         <div className="flex min-h-screen">
@@ -14,7 +16,7 @@ const Dashboard = () => {
                 </div>
                 <ul className="menu p-4">
 
-                    {role === "user" && (
+                    { !isAdmin && (
                         <>
                             <li>
                                 <NavLink to="/dashboard/profile" className="flex items-center gap-2">
@@ -39,7 +41,7 @@ const Dashboard = () => {
                             </li>
                         </>
                     )}
-                    {role === "moderator" && (
+                    { !isAdmin && (
                         <>
                             <li>
                                 <NavLink to="/dashboard/moderator-profile" className="flex items-center gap-2">
@@ -80,7 +82,7 @@ const Dashboard = () => {
                             </li>
                         </>
                     )}
-                    {role === "admin" && (
+                    { isAdmin && (
                         <>
                             <li>
                                 <NavLink
