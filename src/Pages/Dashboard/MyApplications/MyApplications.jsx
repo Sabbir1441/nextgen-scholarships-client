@@ -37,7 +37,7 @@ const MyApplications = () => {
             if (res.data.modifiedCount > 0) {
                 Swal.fire("Success", "Application updated successfully!", "success");
                 refetch();
-                setEditingApplication(null); // Close the edit form
+                setEditingApplication(null); 
             }
         } catch (error) {
             Swal.fire("Error", "Failed to update application.", "error");
@@ -58,7 +58,7 @@ const MyApplications = () => {
                     const response = await axiosSecure.delete(`/applications/${id}`);
                     if (response.status === 200) {
                         Swal.fire('Cancelled!', 'Your application has been cancelled.', 'success');
-                        refetch(); // ডেটা পুনরায় আনুন
+                        refetch(); 
                     } else {
                         Swal.fire('Failed!', 'Could not cancel the application.', 'error');
                     }

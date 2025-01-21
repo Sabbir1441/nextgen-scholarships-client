@@ -28,7 +28,7 @@ const ScholarshipDetails = () => {
     }, [id]);
 
     if (!scholarship) {
-        return <p>Loading...</p>;  // Show loading text while data is being fetched
+        return <p>Loading...</p>;  
     }
 
     return (

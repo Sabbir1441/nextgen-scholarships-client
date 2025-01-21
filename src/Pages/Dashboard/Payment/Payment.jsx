@@ -9,11 +9,10 @@ const Payment = () => {
 
     const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
-    const { id } = useParams();  // Using the scholarship ID from the URL
+    const { id } = useParams();  
     const [scholarship, setScholarship] = useState(null);
 
     useEffect(() => {
-        // Fetch scholarship data using the scholarship ID
         const fetchScholarship = async () => {
             try {
                 const response = await axios.get(`http://localhost:5000/scholarships/${id}`);
@@ -27,7 +26,7 @@ const Payment = () => {
     }, [id]);
 
     if (!scholarship) {
-        return <p>Loading...</p>;  // Show loading text while data is being fetched
+        return <p>Loading...</p>; 
     }
 
 

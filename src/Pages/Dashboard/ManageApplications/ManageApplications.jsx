@@ -18,7 +18,7 @@ const ManageApplications = () => {
             const response = await axiosSecure.patch(`/applications/${applicationId}/status`, { feedback });
             if (response.data.message === 'Application updated successfully') {
                 Swal.fire("Feedback submitted successfully");
-                refetch(); // Refetch the data after feedback submission
+                refetch(); 
             }
         } catch (error) {
             Swal.fire("Error", "Failed to submit feedback", "error");
@@ -30,7 +30,7 @@ const ManageApplications = () => {
             const response = await axiosSecure.patch(`/applications/${applicationId}/cancel`);
             if (response.data.message === 'Application canceled successfully') {
                 Swal.fire("Application canceled successfully");
-                refetch(); // Refetch after cancellation
+                refetch(); 
             }
         } catch (error) {
             Swal.fire("Error", "Failed to cancel application", "error");
