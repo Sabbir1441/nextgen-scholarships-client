@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
 import { FaGoogle } from "react-icons/fa";
 import Social from "../../../Social/Social";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -38,6 +39,10 @@ const Login = () => {
 
 
     return (
+        <div>
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
         <div className="flex items-center justify-center min-h-screen bg-[#97CBDC]">
             <div className="card bg-white w-full max-w-md shadow-2xl rounded-lg">
                 <form onSubmit={handleLogin} className="card-body px-8 py-10">
@@ -92,6 +97,7 @@ const Login = () => {
                     <Social></Social>
                 </form>
             </div>
+        </div>
         </div>
 
 

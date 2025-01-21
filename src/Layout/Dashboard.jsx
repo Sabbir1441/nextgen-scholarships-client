@@ -2,12 +2,18 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUser, FaClipboardList, FaPlus, FaTasks, FaUsers, FaComments } from "react-icons/fa";
 import useAdmin from "../Hooks/useAdmin";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
 
 
     return (
+
+        <div>
+            <Helmet>
+                <title>Dashboard</title>
+            </Helmet>
         <div className="flex min-h-screen">
             {/* Sidebar */}
             <div className="w-72 bg-gray-800 text-white">
@@ -100,6 +106,8 @@ const Dashboard = () => {
                 <Outlet />
             </div>
         </div>
+        </div>
+
     );
 };
 

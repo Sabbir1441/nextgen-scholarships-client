@@ -62,14 +62,6 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to='/apply'
-                                className='bg-slate-500  text-white hover:bg-slate-600'
-                            >
-                                Apply
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
                                 to='/dashboard'
                                 className='bg-slate-500  text-white hover:bg-slate-600'
                             >
@@ -109,14 +101,6 @@ const Navbar = () => {
                             className='bg-slate-500  text-white hover:bg-slate-600'
                         >
                             All Scholarship
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to='/apply'
-                            className='bg-slate-500  text-white hover:bg-slate-600'
-                        >
-                            Apply
                         </NavLink>
                     </li>
                     <li>
