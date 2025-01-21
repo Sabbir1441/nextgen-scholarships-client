@@ -85,10 +85,10 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/dashboard/manage-reviews"
+                                    to="/dashboard/admin-home"
                                     className="flex items-center gap-2"
                                 >
-                                    <FaComments /> Manage Reviews
+                                    <FaHome /> Admin Home
                                 </NavLink>
                             </li>
                         </>

@@ -9,17 +9,14 @@ const MyApplications = () => {
     const axiosSecure = useAxiosSecure();
     const [editingApplication, setEditingApplication] = useState(null);
 
-    console.log("User email:", user.email);
 
     const { data: applications = [], refetch } = useQuery({
         queryKey: ['applications', user.email],
         queryFn: async () => {
             try {
                 const res = await axiosSecure.get(`/applications/${user.email}`);
-                console.log(res.data);
                 return res.data;
             } catch (error) {
-                console.error('Error fetching applications:', error);
             }
         }
     });

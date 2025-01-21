@@ -8,7 +8,6 @@ const TopScholarship = () => {
         fetch('http://localhost:5000/top-scholarships')
             .then(response => response.json())
             .then(data => setScholarships(data))
-            .catch(error => console.error('Error fetching scholarships:', error));
     }, []);
 
     return (

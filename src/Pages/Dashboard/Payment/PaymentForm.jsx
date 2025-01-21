@@ -56,7 +56,6 @@ const PaymentForm = ({ amount, scholarships }) => {
         });
 
         if (confirmError) {
-            console.log('Payment confirmation error:', confirmError);
         } else {
             if (paymentIntent.status === 'succeeded') {
                 setTransactionId(paymentIntent.id);

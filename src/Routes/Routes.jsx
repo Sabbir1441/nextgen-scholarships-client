@@ -21,6 +21,7 @@ import Managescholarships from "../Pages/Dashboard/ManageScholarships/Managescho
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 import MyApplications from "../Pages/Dashboard/MyApplications/MyApplications";
 import ManageApplications from "../Pages/Dashboard/ManageApplications/ManageApplications";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 
 
 
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'manage-applications',
                         element: <AdminRoute><ManageApplications></ManageApplications></AdminRoute>
+                    },
+                    {
+                        path: 'admin-home',
+                        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
                     }
 
                 ]

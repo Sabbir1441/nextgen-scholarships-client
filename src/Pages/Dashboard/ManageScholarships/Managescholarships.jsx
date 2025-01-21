@@ -50,7 +50,6 @@ const Managescholarships = ({ updateScholarship }) => {
                     `/scholarships/${selectedScholarship._id}`,
                     formData
                 );
-                console.log(selectedScholarship._id);
                 if (response.data.modifiedCount > 0) {
                     Swal.fire({
                         position: 'top-end',
@@ -62,7 +61,6 @@ const Managescholarships = ({ updateScholarship }) => {
                     refetch();
                 }
             } catch (error) {
-                console.error('Error updating scholarship:', error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

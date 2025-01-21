@@ -31,7 +31,6 @@ const AllUser = () => {
                 }
             })
             .catch(error => {
-                console.error(error);
                 Swal.fire({
                     position: "top-end",
                     icon: "error",
