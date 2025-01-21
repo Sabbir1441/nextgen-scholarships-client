@@ -16,7 +16,7 @@ const Dashboard = () => {
                 </div>
                 <ul className="menu p-4">
 
-                    { !isAdmin && (
+                    {!isAdmin && (
                         <>
                             <li>
                                 <NavLink to="/dashboard/my-profile" className="flex items-center gap-2">
@@ -41,48 +41,7 @@ const Dashboard = () => {
                             </li>
                         </>
                     )}
-                    { !isAdmin && (
-                        <>
-                            <li>
-                                <NavLink to="/dashboard/moderator-profile" className="flex items-center gap-2">
-                                    <FaUser /> Moderator Profile
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/dashboard/manage-scholarships"
-                                    className="flex items-center gap-2"
-                                >
-                                    <FaTasks /> Manage Scholarships
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/dashboard/all-reviews"
-                                    className="flex items-center gap-2"
-                                >
-                                    <FaComments /> All Reviews
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/dashboard/all-applied-scholarships"
-                                    className="flex items-center gap-2"
-                                >
-                                    <FaClipboardList /> All Applied Scholarships
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/dashboard/add-scholarship"
-                                    className="flex items-center gap-2"
-                                >
-                                    <FaPlus /> Add Scholarship
-                                </NavLink>
-                            </li>
-                        </>
-                    )}
-                    { isAdmin && (
+                    {isAdmin && (
                         <>
                             <li>
                                 <NavLink

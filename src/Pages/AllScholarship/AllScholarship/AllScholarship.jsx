@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import './Css.css';
 
 const AllScholarship = () => {
     const [scholarships, setScholarships] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredScholarships, setFilteredScholarships] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const { count } = useLoaderData();
+
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+
+    const pages = [...Array(numberOfPages).keys()];
 
     useEffect(() => {
         // Fetch scholarships data from the server
         const fetchScholarships = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/scholarships');
+                const response = await axios.get(`http://localhost:5000/scholarships?page=${currentPage}&size=${itemsPerPage}`);
                 setScholarships(response.data);
                 setFilteredScholarships(response.data); // Initially showing all scholarships
             } catch (error) {
@@ -26,7 +34,7 @@ const AllScholarship = () => {
         };
 
         fetchScholarships();
-    }, []);
+    }, [currentPage, itemsPerPage]);
 
     // Handle search query change
     const handleSearchChange = (e) => {
@@ -44,6 +52,25 @@ const AllScholarship = () => {
         });
         setFilteredScholarships(filtered);
     };
+
+    const handleItemsPerPage = e => {
+        const val = parseInt(e.target.value);
+        console.log(val);
+        setItemsPerPage(val);
+        setCurrentPage(0);
+    }
+
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
 
     return (
         <div className="max-w-6xl mx-auto p-6">
@@ -98,6 +125,25 @@ const AllScholarship = () => {
                     ))
                 )}
             </div>
+
+            <div className='pagination my-5'>
+                <button onClick={handlePrevPage}>Prev</button>
+                {
+                    pages.map(page => <button
+                        className={currentPage === page ? 'selected' : undefined}
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                    >{page}</button>)
+                }
+                <button onClick={handleNextPage}>Next</button>
+                <select value={itemsPerPage} onChange={handleItemsPerPage} className="bg-gray-700 text-white p-3 rounded-md" name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+
         </div>
     );
 };

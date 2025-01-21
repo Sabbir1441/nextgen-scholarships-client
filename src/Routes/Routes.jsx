@@ -36,7 +36,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'all-scholarship',
-                element: <AllScholarship></AllScholarship>
+                element: <AllScholarship></AllScholarship>,
+                loader: () => fetch('http://localhost:5000/scholarshipCount')
             },
             {
                 path: '/apply',

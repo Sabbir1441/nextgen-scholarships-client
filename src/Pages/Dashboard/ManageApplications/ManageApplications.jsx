@@ -52,14 +52,13 @@ const ManageApplications = () => {
 
     return (
         <div>
-            <h2>Manage Applications</h2>
+            <h2 className="text-3xl text-center font-bold mb-4">Manage Applications</h2>
             <table className="table">
-                <thead>
+                <thead className="bg-gray-700 text-white">
                     <tr>
                         <th>User Name</th>
                         <th>University</th>
                         <th>Degree</th>
-                        <th>Scholarship Category</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -70,12 +69,11 @@ const ManageApplications = () => {
                             <td>{application.userName}</td>
                             <td>{application.universityName}</td>
                             <td>{application.applyingDegree}</td>
-                            <td>{application.scholarshipCategory}</td>
                             <td>{application.status}</td>
                             <td>
-                                <button onClick={() => handleShowDetails(application)}>Details</button>
-                                <button onClick={() => handleFeedback(application._id, 'Feedback here')}>Feedback</button>
-                                <button onClick={() => handleCancelApplication(application._id)}>Cancel</button>
+                                <button onClick={() => handleShowDetails(application)} className="bg-green-500 px-1 rounded ml-1">Details</button>
+                                <button onClick={() => handleFeedback(application._id, 'Feedback here')} className="bg-orange-400 px-1 rounded my-1 ml-1">Feedback</button>
+                                <button onClick={() => handleCancelApplication(application._id)} className="bg-red-500 px-1 rounded ml-1">Cancel</button>
                             </td>
                         </tr>
                     ))}
