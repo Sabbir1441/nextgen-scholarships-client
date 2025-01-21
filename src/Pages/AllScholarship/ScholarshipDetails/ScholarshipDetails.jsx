@@ -12,7 +12,7 @@ const ScholarshipDetails = () => {
         // Fetch scholarship data using the scholarship ID
         const fetchScholarship = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/scholarships/${id}`);
+                const response = await axios.get(`https://nextgen-scholarships-server.vercel.app/scholarships/${id}`);
                 setScholarship(response.data);
             } catch (error) {
                 Swal.fire({

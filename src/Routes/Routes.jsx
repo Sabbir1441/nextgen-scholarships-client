@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
             {
                 path: 'all-scholarship',
                 element: <AllScholarship></AllScholarship>,
-                loader: () => fetch('http://localhost:5000/scholarshipCount')
+                loader: () => fetch('https://nextgen-scholarships-server.vercel.app/scholarshipCount')
             },
             
             {

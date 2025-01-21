@@ -22,7 +22,7 @@ const AllScholarship = () => {
         // Fetch scholarships data from the server
         const fetchScholarships = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/scholarships?page=${currentPage}&size=${itemsPerPage}`);
+                const response = await axios.get(`https://nextgen-scholarships-server.vercel.app/scholarships?page=${currentPage}&size=${itemsPerPage}`);
                 setScholarships(response.data);
                 setFilteredScholarships(response.data); // Initially showing all scholarships
             } catch (error) {

@@ -5,7 +5,7 @@ const TopScholarship = () => {
     const [scholarships, setScholarships] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/top-scholarships')
+        fetch('https://nextgen-scholarships-server.vercel.app/top-scholarships')
             .then(response => response.json())
             .then(data => setScholarships(data))
     }, []);
