@@ -6,8 +6,6 @@ NextGen Scholarships is a scholarship management system designed to simplify the
 ## 🌐 Live Project
 🔗 [NextGen Scholarships](https://nextgen-scholarships.web.app/)
 
-## 🖼 Screenshot
-![NextGen Scholarships](https://via.placeholder.com/1200x600.png?text=Project+Screenshot)
 
 ## 🚀 Technologies Used
 - **Frontend:** React, React Router DOM, Tailwind CSS
