@@ -13,7 +13,7 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 
 const Category = () => {
     return (
-        <section>
+        <section className='bg-gray-100 pt-4 pb-12'>
             <SectionTitle
                 heading={'Scholarship Category'}
             >
@@ -26,7 +26,7 @@ const Category = () => {
                     clickable: true,
                 }}
                 modules={[Pagination]}
-                className="mySwiper mb-24"
+                className="mySwiper"
             >
                 <SwiperSlide>
                     <img src={category1} alt="" />

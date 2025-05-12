@@ -59,7 +59,7 @@ const PaymentForm = ({ amount, scholarships }) => {
         } else {
             if (paymentIntent.status === 'succeeded') {
                 setTransactionId(paymentIntent.id);
-                setShowApplicationForm(true); // Show application form on success
+                setShowApplicationForm(true); 
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
