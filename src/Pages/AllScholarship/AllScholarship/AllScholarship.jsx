@@ -92,7 +92,7 @@ const AllScholarship = () => {
                     />
                     <button
                         onClick={filterScholarships}
-                        className="ml-4 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg shadow-lg hover:bg-blue-700 transition duration-300"
+                        className="ml-4 px-8 py-4 bg-gradient-to-r bg-slate-500  text-white hover:bg-slate-600 rounded-lg shadow-lg transition duration-300"
                     >
                         Search
                     </button>
@@ -123,7 +123,7 @@ const AllScholarship = () => {
                                 <div className="mt-6">
                                     <Link
                                         to={`/scholarship-details/${scholarship._id}`}
-                                        className="inline-block px-8 py-3 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg text-center shadow-lg hover:bg-green-700 transition duration-300"
+                                        className="inline-block px-5 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg text-center shadow-lg hover:bg-green-700 transition duration-300"
                                     >
                                         View Details
                                     </Link>
