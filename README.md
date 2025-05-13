@@ -80,6 +80,9 @@ Visit `http://localhost:3000/` to see the project in action.
 - [Stripe Payment Integration](https://stripe.com/docs)
 - [React Query Guide](https://tanstack.com/query)
 
+
+![Screenshot](./public/Screenshot%202025-05-13%20060647.png)
+
 ---
 
 💡 **Contributions are welcome!** Feel free to submit a pull request or suggest improvements. 😊
