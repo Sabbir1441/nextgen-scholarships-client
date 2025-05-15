@@ -24,7 +24,7 @@ const TopScholarship = () => {
                             <p className="text-sm text-gray-500 mb-2">Deadline: {new Date(scholarship.applicationDeadline).toLocaleDateString()}</p>
                             <p className="text-sm text-gray-500 mb-2">Subject: {scholarship.subjectCategory}</p>
                             <p className="text-sm text-gray-500 mb-4">Fee: {scholarship.applicationFees} USD</p>
-                            <Link to={`/scholarship-details/${scholarship._id}`} className="inline-block text-white bg-slate-500 px-4 py-2 rounded-md hover:bg-slate-600">Scholarship Details</Link>
+                            <Link to={`/scholarship-details/${scholarship._id}`} className="inline-block text-white bg-[#C18440] hover:bg-yellow-500 px-4 py-2 rounded-md ">Scholarship Details</Link>
                         </div>
                     </div>
                 ))}
@@ -37,3 +37,5 @@ const TopScholarship = () => {
 };
 
 export default TopScholarship;
+
+
