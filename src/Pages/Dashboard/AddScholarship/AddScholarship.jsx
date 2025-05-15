@@ -282,7 +282,7 @@ const AddScholarship = () => {
                 <div className="text-center">
                     <button
                         type="submit"
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        className="px-4 py-2 bg-[#0A92B9] hover:bg-[#087a9c] text-white rounded "
                     >
                         Add Scholarship
                     </button>

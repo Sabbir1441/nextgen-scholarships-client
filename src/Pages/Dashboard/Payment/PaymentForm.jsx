@@ -147,7 +147,7 @@ const PaymentForm = ({ amount, scholarships }) => {
                         <button
                             type="submit"
                             disabled={!stripe || !clientSecret}
-                            className="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-lg shadow-lg hover:from-blue-600 hover:to-blue-700 disabled:bg-gray-400 transition-all"
+                            className="w-full py-3 px-6 bg-[#0A92B9] hover:bg-[#087a9c] text-white font-bold rounded-lg shadow-lg  disabled:bg-gray-400 transition-all"
                         >
                             Pay Securely
                         </button>
@@ -184,7 +184,7 @@ const PaymentForm = ({ amount, scholarships }) => {
                         <input type="text" name="sub" value={scholarships.subjectCategory} className="input input-bordered w-full" readOnly />
                         <button
                             type="submit"
-                            className="w-full py-3 px-6 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition-all"
+                            className="w-full py-3 px-6 bg-[#0A92B9] hover:bg-[#087a9c] text-white font-bold rounded-lg shadow-lg transition-all"
                         >
                             Submit Application
                         </button>

@@ -30,7 +30,7 @@ const TopScholarship = () => {
                 ))}
             </div>
             <div className="text-center mt-8">
-                <Link to="/all-scholarship" className="inline-block px-5 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg text-center shadow-lg hover:bg-green-700 transition duration-300">See All Scholarships</Link>
+                <Link to="/all-scholarship" className="inline-block px-5 py-2 bg-[#0A92B9] hover:bg-[#087a9c] text-white rounded-lg text-center shadow-lg transition duration-300">See All Scholarships</Link>
             </div>
         </div>
     );

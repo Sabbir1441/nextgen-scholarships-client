@@ -80,7 +80,7 @@ const ScholarshipDetails = () => {
                 <div className="mt-8">
                     <Link
                         to={`/payment/${scholarship._id}`}
-                        className="inline-block px-8 py-3 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg text-center shadow-lg hover:bg-green-700 transition duration-300"
+                        className="inline-block px-8 py-3 bg-[#0A92B9] hover:bg-[#087a9c] text-white rounded-lg text-center shadow-lg  transition duration-300"
                     >
                         Apply Scholarship
                     </Link>
